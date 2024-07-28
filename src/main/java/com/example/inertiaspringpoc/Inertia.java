@@ -36,6 +36,8 @@ public class Inertia {
         var writer = response.getWriter();
         if (isInertiaRequest) {
             response.setContentType("application/json");
+            response.setHeader("Vary", "X-Inertia");
+            response.setHeader("X-Inertia", "true");
             writer.write(json);
         } else {
             if (htmlStart == null) {

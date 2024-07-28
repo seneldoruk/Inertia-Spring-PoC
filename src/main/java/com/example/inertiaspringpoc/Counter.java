@@ -8,12 +8,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.PreUpdate;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
 
 @Entity
 @Data
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class Counter {
     @Id
     @Nonnull
@@ -23,11 +25,6 @@ public class Counter {
     @Nonnull
     @Column(name = "val")
     private Integer value;
-
-    public Counter(Integer id, Integer value) {
-        this.id = id;
-        this.value = value;
-    }
 
     @PreUpdate
     protected void onUpdate() {
